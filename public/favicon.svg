@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Selvamurugan S Monogram</title>
+  <desc id="desc">A futuristic ribbon-shaped S monogram in purple, violet and electric blue, with an orbital accent.</desc>
+  <defs>
+    <linearGradient id="ribbonTop" x1="105" y1="120" x2="405" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f04cff"/>
+      <stop offset=".42" stop-color="#8b35ff"/>
+      <stop offset=".78" stop-color="#3d65ff"/>
+      <stop offset="1" stop-color="#16d9ff"/>
+    </linearGradient>
+    <linearGradient id="ribbonBottom" x1="140" y1="390" x2="410" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#df42ff"/>
+      <stop offset=".48" stop-color="#743cff"/>
+      <stop offset="1" stop-color="#00d7ff"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="120" y1="100" x2="390" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffb6ff"/>
+      <stop offset=".5" stop-color="#8a70ff"/>
+      <stop offset="1" stop-color="#66f1ff"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 .35  0 1 0 0 .08  0 0 1 0 .9  0 0 0 .8 0" result="tint"/>
+      <feMerge><feMergeNode in="tint"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fine orbital sweep -->
+  <path d="M78 329 C112 214 250 107 382 115 C443 119 465 157 442 205"
+        fill="none" stroke="url(#ribbonTop)" stroke-width="4.5" stroke-linecap="round" opacity=".88"/>
+  <path d="M78 329 C68 369 104 393 151 382"
+        fill="none" stroke="#a54cff" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+
+  <!-- Upper ribbon of the S -->
+  <path d="M132 177
+           C151 133 198 108 260 96
+           L382 72
+           L350 132
+           L250 153
+           C215 160 195 171 188 188
+           C180 208 198 220 230 232
+           L296 256
+           L222 294
+           L151 265
+           C101 246 105 211 132 177 Z"
+        fill="url(#ribbonTop)" filter="url(#glow)"/>
+  <path d="M132 177 C151 133 198 108 260 96 L382 72"
+        fill="none" stroke="url(#edge)" stroke-width="3.5" stroke-linecap="round" opacity=".95"/>
+
+  <!-- Lower ribbon, flowing back to complete the S -->
+  <path d="M380 239
+           C426 258 421 302 378 329
+           C355 344 326 354 291 363
+           L154 401
+           L190 338
+           L291 309
+           C326 299 344 286 345 269
+           C346 254 330 244 302 234
+           L236 210
+           L310 174
+           L380 200
+           C397 207 403 222 380 239 Z"
+        fill="url(#ribbonBottom)" filter="url(#glow)"/>
+  <path d="M154 401 L190 338 L291 309"
+        fill="none" stroke="url(#edge)" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+
+  <!-- Orbital node -->
+  <circle cx="442" cy="205" r="11" fill="#8055ff" stroke="#b9a5ff" stroke-width="2"/>
+  <circle cx="442" cy="205" r="4" fill="#e9dcff"/>
+</svg>

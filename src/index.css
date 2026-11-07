@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --violet: 139 92 246;
+    --electric: 56 189 248;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-zinc-300 antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgb(var(--violet) / 0.45);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--electric));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* Cheap glass: translucent + hairline border, no blur. */
+  .glass {
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.02));
+    border: 1px solid rgb(255 255 255 / 0.08);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
+  }
+
+  /* Real blur — used sparingly (navbar, hero facts). Disabled on low-power. */
+  .glass-blur {
+    background: rgb(15 15 22 / 0.6);
+    border: 1px solid rgb(255 255 255 / 0.09);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+  }
+  .low-power .glass-blur {
+    background: rgb(15 15 22 / 0.92);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(110deg, #c4b5fd 0%, #8b5cf6 35%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hairline-top {
+    background-image: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.14), transparent);
+  }
+
+  .grid-mask {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+  }
+
+  /* Ambient orbs are radial gradients (no filter: blur) so they stay cheap. */
+  .orb {
+    position: absolute;
+    border-radius: 9999px;
+    will-change: transform;
+  }
+  .low-power .orb,
+  .low-power .animate-drift,
+  .low-power .animate-drift-alt {
+    animation: none !important;
+    will-change: auto;
+  }
+}
